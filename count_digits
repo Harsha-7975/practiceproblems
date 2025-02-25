@@ -1,0 +1,21 @@
+Count digits:
+
+class Solution {
+    static int evenlyDivides(int n) {
+        int n2 = n;
+        int count = 0;
+        while(n2!=0)
+        {
+            int denominator = n2%10;
+            
+            if(denominator!=0 && n%denominator==0)
+            {
+                count += 1;
+                
+            }
+            n2 = n2/10;
+        }
+        return count;
+        
+    }
+}

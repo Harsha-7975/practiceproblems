@@ -1,0 +1,63 @@
+https://leetcode.com/problems/palindrome-number/
+
+6ms approach:
+
+this uses two pointer approach, where one will be placed at the start 
+and the other one will be placed at the end of the number
+
+
+class Solution {
+    public boolean isPalindrome(int x) {
+
+        String s = Integer.toString(x);
+        
+        int c = 0;
+        int r = s.length()-1;
+
+        while(c<r && c!=r)
+        {
+            if(s.charAt(c)!=s.charAt(r))
+            {
+                return false;
+            }
+            c++;
+            r--;
+        }
+        return true;
+    }
+}
+
+
+
+
+//5.7 ms approach
+
+reversing the number and comparing it with the original number given
+
+class Solution {
+    public boolean isPalindrome(int x) {
+
+        int result = 0;
+        int x2 = x;
+
+        while(x2>0)
+        {
+            result = (result*10) + (x2%10);
+            x2 = x2/10;
+        }
+
+        if(result==x)
+        {
+            return true;
+        }
+
+        return false;
+
+        
+    }
+}
+
+
+
+
+

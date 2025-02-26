@@ -1,0 +1,60 @@
+GCD AND LCM
+
+u x v = LCM(u, v) * GCD (u, v)
+
+LCM(u, v) = (u x v) / GCD(u, v)
+
+The Euclidean Algorithm is a method for finding the greatest common divisor of two numbers. 
+It operates on the principle that the GCD of two numbers remains the same even if the smaller number is subtracted from the larger number.
+
+To find the GCD of n1 and n2 where n1 > n2:
+
+Repeatedly subtract the smaller number from the larger number until one of them becomes 0.
+Once one of them becomes 0, the other number is the GCD of the original numbers.
+
+while(a>0 && b>0)
+if(a>b)
+a = a%b
+
+else
+b = b%a
+
+
+
+https://www.geeksforgeeks.org/problems/lcm-and-gcd4516/1
+
+
+class Solution {
+    public static int[] lcmAndGcd(int a, int b) {
+        
+        int lcm = (a/(findGCD(a,b))) * b;
+        int gcd = findGCD(a,b);
+        
+        return new int[]{lcm,gcd};
+        // code here
+    }
+    
+    public static int findGCD(int a,int b)
+    {
+        while(a>0 && b>0)
+        {
+            if(a>b)
+            {
+                a = a%b;
+            }
+            
+            else if(b>a)
+            {
+                b = b%a;
+            }
+        }
+        
+        if(a==0)
+        {
+            return b;
+            
+        }
+        
+        return a;
+    }
+}
